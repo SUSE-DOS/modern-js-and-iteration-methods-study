@@ -28,57 +28,59 @@ Use [DuckDuckGo](https://duckduckgo.com/) or your preferred search engine along 
    ```
 
    ```js
-   // Please write your answer here
+   // code here
+   let addToCart = (item) => {
+     cart.add(item);
+   };
    ```
 
 2. Consider the functions `renderGuest`, `getGuestsWithChildTicket` and `getGuestsWithChildTicket` functions. Which array iteration methods would you use instead of the for loops?
 
-  ```js
-  const guests = [
-    "Paul",
-    "Fatima",
-    "Anna",
-    "Silver",
-  ]
+```js
+const guests = ["Paul", "Fatima", "Anna", "Silver"];
 
-  const renderGuest = (guests) => {
-    const guestList = document.querySelector('guests')
-  
-    for(let i = 0; i < guests.length; i++) {
-      const guest = guests[i]
-      guestList.innerHTML += `<p>${guest}</p>`
+const renderGuest = (guests) => {
+  const guestList = document.querySelector("guests");
+
+  for (let i = 0; i < guests.length; i++) {
+    const guest = guests[i];
+    guestList.innerHTML += `<p>${guest}</p>`;
+  }
+};
+
+const removeGuest = (guests, name) => {
+  const updatedGuestList = [];
+
+  for (let i = 0; i < guests.length; i++) {
+    const guest = guests[i];
+
+    if (guest != name) {
+      updatedGuestList.push(guest);
     }
   }
 
-  const removeGuest = (guests, name) => {
-    const updatedGuestList = []
+  return updatedGuestList;
+};
 
-    for(let i = 0; i < guests.length; i++) {
-      const guest = guests[i]
-      
-      if (guest != name) {
-        updatedGuestList.push(guest)
-      }
-    }
-    
-    return updatedGuestList
+const checkInAllGuests = (guests) => {
+  const checkedInGuests = [];
+
+  for (let i = 0; i < guests.length; i++) {
+    guest = guests[i];
+    checkedInGuests.push(`${guest} - Has checked in`);
   }
 
-  const checkInAllGuests = (guests) => {
-    const checkedInGuests = []
+  return checkedInGuests;
+};
+```
 
-    for(let i = 0; i < guests.length; i++) {
-      guest = guests[i]
-      checkedInGuests.push(`${guest} - Has checked in`)
-    }
+```js
+// For renderGuest it looks like forEach would be suitable because it is a simple retrieval for each of the guest names.
 
-    return checkedInGuests
-  }
-  ```
+// For removeGuest a filter method would be useful as it uses an if statement to check a certain condition is met prior to being pushed.
 
-  ```js
-   // Please write your answer here
-  ```  
+// For checkInAllGuests it looks like the map method would be useful because it adds the "Has checked in" string to the array item when the item is pushed.
+```
 
 2. Write js code to destructure this object:
 
@@ -86,26 +88,25 @@ Use [DuckDuckGo](https://duckduckgo.com/) or your preferred search engine along 
 const person = {
   name: "John",
   age: 21,
-  gender: "m",
+  gender: "m"
 };
 
 // Add your code here to destructure the object 'person'.
+const { name, age, gender } = person;
 ```
-
 
 3. Edit the code below to use enhanced object literal approach to assign properties.
 
 ```js
-  const name = "Mary"
-  const age = 22
-  const gender = "f"
-
+const name = "Mary";
+const age = 22;
+const gender = "f";
 
 // Edit this object
 const mary = {
-  name: person.name,
-  age: person.age,
-  gender: person.gender,
+  name,
+  age,
+  gender
 };
 ```
 
